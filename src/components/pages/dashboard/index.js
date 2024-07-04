@@ -89,14 +89,14 @@ function Dashboard() {
                 setCustomer([]);
                 Swal.fire({
                     title: res.data.message,
-                    icon: "Success"
+                    icon: "success"
                 });
                 return true;
             }
         }).catch(err => {
             Swal.fire({
                 text: err,
-                icon: "Error"
+                icon: "error"
             });
         })
     }
@@ -109,33 +109,32 @@ function Dashboard() {
                     setShow(false)
                     Swal.fire({
                         title: res.data.message,
-                        icon: "Success"
+                        icon: "success"
                     });
                     return true;
                 } else {
                     Swal.fire({
                         title: res.data.message,
-                        icon: "Success"
+                        icon: "success"
                     }); 
                 }
             }).catch(err => {
                 Swal.fire({
                     text: err,
-                    icon: "Error"
+                    icon: "error"
                 });
             })
 
             return true;
         }
         
-        console.log('updating');
         await axios.put(`${URL}/customers/${customer.id}`, customer).then(res => {
             setShow(false)
             setCustomer([]);
             if (res.data.status === 200) {
                 Swal.fire({
                     title: res.data.message,
-                    icon: "Success"
+                    icon: "success"
                 });
                 
                 return true;
@@ -143,7 +142,7 @@ function Dashboard() {
         }).catch(err => {
             Swal.fire({
                 text: err,
-                icon: "Error"
+                icon: "error"
             });
         })
     }
